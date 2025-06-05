@@ -1,0 +1,284 @@
+
+/* Modern interactive elements */
+.interactive-element {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.interactive-element:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px -5px rgba(124, 58, 237, 0.2);
+}
+
+/* Music player styling */
+.music-player-controls button {
+  transition: all 0.3s ease;
+}
+
+.music-player-controls button:hover {
+  transform: scale(1.1);
+}
+
+/* Floating animations */
+.floating {
+  animation: floating 6s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* Glowing effect */
+.glow-effect {
+  position: relative;
+  z-index: 1;
+}
+
+.glow-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  background: linear-gradient(45deg, rgba(124, 58, 237, 0.4), rgba(236, 72, 153, 0.4));
+  z-index: -1;
+  filter: blur(16px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.glow-effect:hover::before {
+  opacity: 1;
+}
+
+/* Spinning animation */
+.spin-slow {
+  animation: spin 20s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Pulsing animation */
+.pulse-effect {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Background blur effects */
+.bg-blur {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Text animation */
+.text-shimmer {
+  background: linear-gradient(
+    to right,
+    #9b87f5 20%,
+    #d946ef 40%,
+    #d946ef 60%,
+    #9b87f5 80%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* 3D card hover effect */
+.card-3d {
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  transform-style: preserve-3d;
+}
+
+.card-3d:hover {
+  transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+  box-shadow: 
+    0 30px 60px -12px rgba(50, 50, 93, 0.25),
+    0 18px 36px -18px rgba(0, 0, 0, 0.3),
+    0 -12px 36px -8px rgba(124, 58, 237, 0.1);
+}
+
+/* Animated gradient borders */
+.gradient-border {
+  position: relative;
+  border-radius: inherit;
+  background-clip: padding-box;
+  padding: 2px;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: -2px;
+  border-radius: inherit;
+  background: linear-gradient(
+    45deg,
+    rgba(124, 58, 237, 1) 0%,
+    rgba(236, 72, 153, 1) 25%,
+    rgba(124, 58, 237, 0.5) 50%,
+    rgba(236, 72, 153, 1) 75%,
+    rgba(124, 58, 237, 1) 100%
+  );
+  background-size: 200% 200%;
+  animation: moveGradient 4s alternate infinite;
+  z-index: -1;
+}
+
+@keyframes moveGradient {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+/* Music wave animation */
+.music-wave {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 20px;
+}
+
+.music-wave span {
+  display: block;
+  width: 3px;
+  margin: 0 1px;
+  border-radius: 1px;
+  background-color: rgba(124, 58, 237, 0.8);
+  animation: wave 1.2s infinite ease-in-out;
+}
+
+.music-wave span:nth-child(2) { animation-delay: 0.2s; }
+.music-wave span:nth-child(3) { animation-delay: 0.4s; }
+.music-wave span:nth-child(4) { animation-delay: 0.6s; }
+.music-wave span:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes wave {
+  0%, 100% { transform: scaleY(0.5); }
+  50% { transform: scaleY(1); }
+}
+
+/* Parallax scroll effect */
+.parallax {
+  transform: translateZ(0);
+  transition: transform 0.3s ease;
+}
+
+.parallax-slow {
+  transform: translateZ(-10px) scale(1.1);
+}
+
+.parallax-fast {
+  transform: translateZ(10px) scale(0.9);
+}
+
+/* Neon text effect */
+.neon-text {
+  color: #fff;
+  text-shadow:
+    0 0 5px rgba(124, 58, 237, 1),
+    0 0 10px rgba(124, 58, 237, 1),
+    0 0 20px rgba(124, 58, 237, 0.75),
+    0 0 40px rgba(124, 58, 237, 0.5);
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Holo card effect */
+.holo-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.holo-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.03) 40%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0.03) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+
+.holo-card:hover::after {
+  animation: holo-shimmer 1.5s infinite linear;
+}
+
+@keyframes holo-shimmer {
+  from { transform: rotate(45deg) translateY(-100%); }
+  to { transform: rotate(45deg) translateY(100%); }
+}
+
+/* Magnetic button effect */
+.magnetic-btn {
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.magnetic-btn:hover {
+  transition: transform 0s ease;
+}
+
+/* Scroll reveal animations */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger animations for children elements */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.stagger-children.revealed > * {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.stagger-children.revealed > *:nth-child(1) { transition-delay: 0.1s; }
+.stagger-children.revealed > *:nth-child(2) { transition-delay: 0.2s; }
+.stagger-children.revealed > *:nth-child(3) { transition-delay: 0.3s; }
+.stagger-children.revealed > *:nth-child(4) { transition-delay: 0.4s; }
+.stagger-children.revealed > *:nth-child(5) { transition-delay: 0.5s; }
+.stagger-children.revealed > *:nth-child(6) { transition-delay: 0.6s; }

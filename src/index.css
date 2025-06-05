@@ -1,0 +1,193 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 250 20% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 20% 11%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 240 20% 11%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 267 75% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 260 30% 18%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 10% 18%;
+    --muted-foreground: 240 5% 70%;
+
+    --accent: 285 75% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 10% 18%;
+    --input: 240 10% 18%;
+    --ring: 285 75% 60%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 240 20% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 267 75% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 10% 20%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 10% 20%;
+    --sidebar-ring: 285 75% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    background-image: radial-gradient(circle at 50% 50%, rgba(93, 38, 193, 0.05) 0%, transparent 60%);
+  }
+  
+  .music-card {
+    @apply relative overflow-hidden rounded-xl bg-card border border-purple-700/30 shadow-lg hover:shadow-purple-500/30 transition-all duration-300 hover:translate-y-[-5px];
+  }
+  
+  .video-card {
+    @apply relative overflow-hidden rounded-xl bg-card border border-purple-700/30 shadow-lg hover:shadow-purple-500/30 transition-all duration-300;
+  }
+  
+  .premium-badge {
+    @apply absolute top-3 right-3 bg-gradient-to-r from-purple-500 to-accent text-accent-foreground text-xs px-3 py-1 rounded-full font-medium shadow-sm shadow-purple-500/20;
+  }
+  
+  .glass-effect {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-xl;
+  }
+  
+  .glass-button {
+    @apply glass-effect hover:bg-white/10 transition-all duration-300;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-purple-300 via-primary to-accent bg-clip-text text-transparent;
+  }
+  
+  .bg-gradient {
+    @apply bg-gradient-to-r from-purple-500 to-accent;
+  }
+  
+  .animated-border {
+    @apply relative;
+  }
+  
+  .animated-border::after {
+    content: '';
+    @apply absolute rounded-xl inset-0 border border-purple-500/30 z-0;
+    animation: border-pulse 4s infinite;
+  }
+  
+  @keyframes border-pulse {
+    0%, 100% {
+      @apply border-purple-500/30;
+    }
+    50% {
+      @apply border-accent/50;
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-10px) rotate(2deg);
+    }
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes pulse-soft {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+  
+  .animate-pulse-soft {
+    animation: pulse-soft 3s ease-in-out infinite;
+  }
+  
+  .glow {
+    @apply relative;
+  }
+  
+  .glow::after {
+    content: '';
+    @apply absolute rounded-full inset-0 blur-md;
+    background: inherit;
+    z-index: -1;
+    opacity: 0.7;
+  }
+  
+  /* Character-by-character text animation */
+  .char-animation {
+    display: inline-block;
+    transform-origin: 50% 100%;
+  }
+  
+  .char-animation:hover {
+    animation: bounce 0.5s ease;
+  }
+  
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Shimmer effect */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.2) 25%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite linear;
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  
+  /* 3D hover effect */
+  .hover-3d {
+    transition: transform 0.3s ease;
+    transform-style: preserve-3d;
+  }
+  
+  .hover-3d:hover {
+    transform: perspective(1000px) rotateY(10deg) rotateX(5deg) translateY(-5px);
+  }
+}
