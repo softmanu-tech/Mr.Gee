@@ -96,7 +96,7 @@ const HeroSection: React.FC = () => {
 
   return (
     <section ref={ref} className="relative min-h-screen pt-20 overflow-hidden">
-      {/* Background Elements */}
+      {/* Background */}
       <motion.div 
         className="absolute inset-0 overflow-hidden"
         variants={backgroundElements}
